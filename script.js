@@ -28,7 +28,25 @@ if (timeline) {
   timeline.addEventListener("wheel", (evt) => {
     if (evt.deltaY !== 0) {
       evt.preventDefault();
-      timeline.scrollLeft += evt.deltaY;
+      timeline.scrollBy({
+        left: evt.deltaY * 2,
+        behavior: "auto",
+      });
     }
   });
+}
+
+window.addEventListener("scroll", () => {
+  const winScroll =
+    document.body.scrollTop || document.documentElement.scrollTop;
+  const height =
+    document.documentElement.scrollHeight -
+    document.documentElement.clientHeight;
+  const scrolled = (winScroll / height) * 100;
+  document.querySelector(".scroll-progress").style.width = scrolled + "%";
+});
+
+const container = document.querySelector(".timeline-container");
+if (container) {
+  container.style.setProperty("--line-width", `${container.scrollWidth}px`);
 }
