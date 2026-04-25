@@ -3,63 +3,87 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>About Us | Team [Your Number]</title>
+    <title>DURT | NURC 2026</title>
     <link rel="stylesheet" href="style.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap"
+      rel="stylesheet"
+    />
   </head>
   <body>
     <header class="hero">
-      <h1>DURT: Delta Underwater Robotics Team</h1>
-      <p>Engineering the future, one bolt at a time.</p>
+      <div class="reveal">
+        <img src="Logo.png" alt="DURT Logo" class="hero-logo" />
+        <h1>Delta Underwater Robotics</h1>
+        <p>Depth. Precision. Culture.</p>
+      </div>
     </header>
 
-    <div class="container">
-      <section id="who-we-are">
-        <h2>Who We Are</h2>
+    <section class="wave-wrapper reveal">
+      <div class="wave-bg wave-left"></div>
+      <img src="rov-cutout.png" alt="ROV Hydra" class="floating-img img-left" />
+      <div class="caption cap-left">
+        <strong>Propulsion System</strong><br />Custom 3D-Printed Shrouds
+      </div>
+      <div class="content content-right">
+        <h2>The Hardware: ROV [Name]</h2>
         <p>
-          Founded in 2025, DURT is a student-led robotics program. We are a
-          diverse group of programmers, builders, and designers dedicated to
-          exploring the world of STEM through competitive robotics.
+          Built for the 2026 NURC mission, our latest ROV features a modular
+          chassis and high-torque thrusters optimized for deep-water stability.
         </p>
-      </section>
+      </div>
+    </section>
 
-      <section id="history">
-        <h2>Our Journey</h2>
-        <div class="grid">
-          <div class="card">
-            <h3>2025 NURC Season</h3>
-            <p>
-              Awarded the Judges Award at the National Underwater Robotics
-              Compeition (NURC).
-            </p>
-          </div>
-        </div>
-      </section>
-
-      <section id="goals">
-        <h2>What We're Competing For</h2>
+    <section class="wave-wrapper reveal">
+      <div class="wave-bg wave-right"></div>
+      <img
+        src="software-cutout.png"
+        alt="Code Screenshot"
+        class="floating-img img-right"
+      />
+      <div class="caption cap-right">
+        <strong>Computer Vision</strong><br />OpenCV Object Tracking
+      </div>
+      <div class="content content-left">
+        <h2>Intelligent Systems</h2>
         <p>
-          This year, we are taking on <strong>NURC 2026</strong>. Our goal is to
-          engineer an ROV capable of performing tasks and manuvers. We aren't
-          just competing for trophies; we're competing to refine our skills in
-          CAD, C++, and strategic planning.
+          We leverage Python and C++ to handle real-time sensor fusion. Our
+          vision system allows for autonomous gate navigation and precise claw
+          manipulation.
         </p>
-      </section>
+      </div>
+    </section>
 
-      <section id="donate">
-        <div class="donation-box">
-          <h2>Support Our Innovation</h2>
-          <p>
-            Building robots is expensive! Your donations go directly toward
-            parts, registration fees, and travel costs for our students.
-          </p>
-          <br />
-          <a href="YOUR_PAYPAL_OR_STRIPE_LINK" class="btn">Sponsor the Team</a>
+    <section class="timeline-section reveal">
+      <h2 class="section-title">Our Journey</h2>
+      <div class="timeline-container">
+        <div class="timeline-card">
+          <h3>2024</h3>
+          <p>Team founded at Delta High.</p>
         </div>
-      </section>
-    </div>
+        <div class="timeline-card highlighted">
+          <h3>2025</h3>
+          <p>Won "Judges Award" at NURC debut.</p>
+        </div>
+        <div class="timeline-card">
+          <h3>2026</h3>
+          <p>Expanding into Autonomous Navigation.</p>
+        </div>
+      </div>
+    </section>
 
-    <footer>
-      <p>&copy; 2026 Team [Number]. All Rights Reserved.</p>
+    <footer class="donate-footer reveal">
+      <div class="footer-content">
+        <h2>Support the Mission</h2>
+        <p>
+          Your contributions go directly toward sensors, waterproof connectors,
+          and travel costs for the team.
+        </p>
+        <a href="YOUR_LINK_HERE" class="donate-btn">Sponsor DURT 2026</a>
+      </div>
+      <div class="bottom-bar">&copy; 2026 Delta Underwater Robotics Team</div>
     </footer>
+
+    <script src="script.js"></script>
   </body>
 </html>
