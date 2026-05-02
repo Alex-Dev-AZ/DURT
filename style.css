@@ -217,6 +217,74 @@ body:not(.roots-theme) #link-2026 .nav-dot {
     pointer-events: none;
 }
 
+/*! MISSION STATEMENT ========================================================================*/
+.mission-statement-section {
+    padding: 100px 20px;
+    display: flex;
+    justify-content: center;
+}
+
+.mission-statement-section .viewport-frame {
+    max-width: 850px;
+    background: rgba(72, 202, 228, 0.03);
+    border-left: 3px solid var(--accent);
+    padding: 40px;
+    position: relative;
+}
+
+.transmission-header {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.75rem;
+    color: var(--accent);
+    margin-bottom: 20px;
+    letter-spacing: 2px;
+}
+
+.blink-dot {
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    background: #ff4d4d;
+    border-radius: 50%;
+    margin-right: 10px;
+    animation: pulse 1s infinite;
+}
+
+.statement-content p {
+    font-size: 1.2rem;
+    line-height: 1.8;
+    color: var(--white);
+    margin-bottom: 20px;
+}
+
+.highlight-text {
+    color: var(--accent);
+    font-weight: bold;
+    text-shadow: 0 0 10px rgba(72, 202, 228, 0.4);
+}
+
+.transmission-footer {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.7rem;
+    opacity: 0.4;
+    text-align: right;
+    margin-top: 20px;
+}
+
+@keyframes pulse {
+    0% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0.3;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
 /*! ORGANIC WAVE BG =====================================*/
 
 .wave-wrapper {
