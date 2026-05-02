@@ -24,7 +24,7 @@ const observer = new IntersectionObserver(
 document.querySelectorAll(".reveal").forEach((el) => observer.observe(el));
 
 const timeline = document.querySelector(".timeline-container");
-if (timeline) {
+if (timeline && window.innerWidth > 768) {
   timeline.addEventListener("wheel", (evt) => {
     if (evt.deltaY !== 0) {
       evt.preventDefault();
@@ -56,23 +56,28 @@ function initializeScatterField() {
   if (!field) return;
 
   const names = field.querySelectorAll(".float-name");
-  const fieldWidth = field.offsetWidth;
-  const fieldHeight = field.offsetHeight;
+
+  const rect = field.getBoundingClientRect();
+  const fieldWidth = rect.width;
+  const fieldHeight = rect.height;
 
   names.forEach((name) => {
-    const randomX = Math.random() * (fieldWidth - 150);
-    const randomY = Math.random() * (fieldHeight - 50);
+    const isMobile = window.innerWidth < 768;
+    const maxX = isMobile ? fieldWidth - 80 : fieldWidth - 150;
+    const maxY = isMobile ? fieldHeight - 40 : fieldHeight - 60;
 
-    const randomDelay = Math.random() * -20;
-    const randomDuration = 5 + Math.random() * 10;
-    const randomRotation = -5 + Math.random() * 10;
+    const randomX = Math.max(10, Math.random() * maxX);
+    const randomY = Math.max(10, Math.random() * maxY);
 
     name.style.left = `${randomX}px`;
     name.style.top = `${randomY}px`;
 
-    name.style.animation = `underwaterFloat ${randomDuration}s ease-in-out ${randomDelay}s infinite alternate`;
+    const duration = 6 + Math.random() * 8;
+    const delay = Math.random() * -10;
+    const rotation = -5 + Math.random() * 10;
 
-    name.style.setProperty("--drift-rotation", `${randomRotation}deg`);
+    name.style.animation = `underwaterFloat ${duration}s ease-in-out ${delay}s infinite alternate`;
+    name.style.setProperty("--drift-rotation", `${rotation}deg`);
   });
 }
 

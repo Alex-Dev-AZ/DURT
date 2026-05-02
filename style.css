@@ -1,4 +1,4 @@
-/*! GLOBAL VARIABLES ==========================================================================*/
+/*! GLOBAL VARIABLES & STYLES ==========================================================================*/
 :root {
     --bg: #020b14;
     --accent: #48cae4;
@@ -13,6 +13,43 @@ body {
     font-family: 'Inter', sans-serif;
     margin: 0;
     overflow-x: hidden;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    object-fit: contain;
+    margin: 0 auto;
+    display: block;
+}
+
+.hero-logo,
+.legacy-logo {
+    max-width: 80%;
+    margin: 0 auto;
+}
+
+.viewport-frame,
+.hero,
+.roots-hero,
+.blueprint-wrapper {
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.wave-wrapper,
+.blueprint-wrapper {
+    position: relative;
+    width: 85%;
+    max-width: 1200px;
+    min-height: 500px;
+    margin: 100px auto;
+    display: flex;
+    align-items: center;
+    padding: 60px 0;
 }
 
 /*! REVEAL ON SCROLL ==========================================================================*/
@@ -149,6 +186,8 @@ body:not(.roots-theme) #link-2026 .nav-dot {
     display: block;
     filter: contrast(1.1) brightness(0.9) saturate(1.1);
     transition: 0.5s ease;
+    max-height: 70vh;
+    object-fit: cover;
 }
 
 .viewport-frame:hover .team-photo {
@@ -287,16 +326,6 @@ body:not(.roots-theme) #link-2026 .nav-dot {
 
 /*! ORGANIC WAVE BG =====================================*/
 
-.wave-wrapper {
-    position: relative;
-    width: 85%;
-    max-width: 1200px;
-    height: 450px;
-    margin: 200px auto;
-    display: flex;
-    align-items: center;
-}
-
 .wave-wrapper::before {
     content: '';
     position: absolute;
@@ -382,13 +411,6 @@ body:not(.roots-theme) #link-2026 .nav-dot {
 }
 
 .blueprint-wrapper {
-    position: relative;
-    width: 85%;
-    max-width: 1200px;
-    height: 450px;
-    margin: 150px auto;
-    display: flex;
-    align-items: center;
     border: 1px solid rgba(255, 140, 0, 0.2);
 }
 
@@ -636,15 +658,17 @@ body:not(.roots-theme) #link-2026 .nav-dot {
 
 /*! TIMELINE ==================================================================================*/
 .timeline-section {
-    padding: 100px 0;
+    padding: 60px 0;
+    overflow: hidden;
     text-align: center;
 }
 
 .timeline-container {
     display: flex;
     flex-wrap: nowrap;
-    padding: 150px 10vw;
+    padding: 180px 10vw;
     overflow-x: auto;
+    scroll-snap-type: x mandatory;
     overflow-y: hidden;
     position: relative;
     scroll-behavior: smooth;
@@ -681,6 +705,7 @@ body:not(.roots-theme) #link-2026 .nav-dot {
     transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
     z-index: 2;
     backface-visibility: hidden;
+    scroll-snap-align: center;
 }
 
 .timeline-card:hover {
@@ -929,4 +954,174 @@ body:not(.roots-theme) #link-2026 .nav-dot {
     background: var(--accent);
     z-index: 3000;
     box-shadow: 0 0 10px var(--accent);
+}
+
+/*! SCALING FOR ALL SCREENS ==================================================================================*/
+
+/*? SCALING FOR LARGE SCREENS (2K, 3K, 4K) ===========================*/
+@media (min-width: 1600px) {
+    html {
+        font-size: 20px;
+    }
+
+    .viewport-frame {
+        max-width: 1200px;
+    }
+}
+
+@media (min-width: 2500px) {
+    html {
+        font-size: 26px;
+    }
+
+    .viewport-frame {
+        max-width: 1800px;
+    }
+}
+
+/*? TABLET & SMALL LAPTOP (720p/1024px) ===========================*/
+@media (max-width: 1024px) {
+    .floating-img {
+        top: -50px;
+        height: 80%;
+    }
+
+    .hero h1,
+    .industrial-text {
+        font-size: 3rem;
+    }
+
+    .blueprint-wrapper {
+        height: auto;
+        padding: 40px 20px;
+    }
+
+    .mission-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+}
+
+/*? MOBILE (<=768px) ===========================*/
+@media (max-width: 768px) {
+
+    .nav-label {
+        display: none;
+    }
+
+    .depth-nav {
+        top: auto;
+        bottom: 20px;
+        right: 50%;
+        transform: translateX(50%);
+        background: rgba(2, 11, 20, 0.8);
+        backdrop-filter: blur(10px);
+        padding: 15px 25px;
+        border-radius: 50px;
+        border: 1px solid rgba(72, 202, 228, 0.2);
+    }
+
+    .nav-track {
+        flex-direction: row;
+        gap: 20px;
+    }
+
+    .hero {
+        height: auto;
+        padding: 100px 20px;
+    }
+
+    .hero-logo,
+    .legacy-logo {
+        width: 60%;
+    }
+
+    .hero h1,
+    .industrial-text {
+        font-size: 2rem;
+    }
+
+    .viewport-frame {
+        width: 95%;
+        padding: 10px;
+        height: auto;
+    }
+
+    .team-photo-section {
+        padding: 40px 0;
+    }
+
+    .blueprint-wrapper {
+        height: auto !important;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 40px 20px;
+    }
+
+    .floating-img {
+        position: static !important;
+        margin: 20px auto !important;
+        display: block;
+        width: 100%;
+        max-width: 300px;
+    }
+
+    .content-left,
+    .content-right {
+        width: 100%;
+        padding: 0;
+    }
+
+    .timeline-container {
+        padding: 40px 20px;
+        overflow-x: scroll;
+        justify-content: flex-start;
+        flex-direction: column;
+        gap: 30px;
+    }
+
+    .timeline-card,
+    .timeline-card:nth-child(odd),
+    .timeline-card:nth-child(even) {
+        transform: none !important;
+        margin: 0 auto;
+        width: 100%;
+        min-width: unset;
+    }
+
+    .timeline-card::after {
+        display: none;
+    }
+
+    .timeline-container::before {
+        display: none;
+    }
+    
+    .wave-bg {
+        border-radius: 20px !important;
+        animation: none;
+    }
+    
+    .content {
+        width: 100%;
+        text-align: center !important;
+        padding: 20px;
+    }
+}
+
+/*? TINY SCREENS (<=380px) ===========================*/
+@media (max-width: 380px) {
+    html {
+        font-size: 14px;
+    }
+
+    .hero h1 {
+        font-size: 1.5rem;
+    }
+
+    .glitch-text {
+        font-size: 1.2rem;
+        letter-spacing: 5px;
+    }
 }
