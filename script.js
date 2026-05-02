@@ -50,3 +50,31 @@ const container = document.querySelector(".timeline-container");
 if (container) {
   container.style.setProperty("--line-width", `${container.scrollWidth}px`);
 }
+
+function initializeScatterField() {
+  const field = document.getElementById("donor-field");
+  if (!field) return;
+
+  const names = field.querySelectorAll(".float-name");
+  const fieldWidth = field.offsetWidth;
+  const fieldHeight = field.offsetHeight;
+
+  names.forEach((name) => {
+    const randomX = Math.random() * (fieldWidth - 150);
+    const randomY = Math.random() * (fieldHeight - 50);
+
+    const randomDelay = Math.random() * -20;
+    const randomDuration = 5 + Math.random() * 10;
+    const randomRotation = -5 + Math.random() * 10;
+
+    name.style.left = `${randomX}px`;
+    name.style.top = `${randomY}px`;
+
+    name.style.animation = `underwaterFloat ${randomDuration}s ease-in-out ${randomDelay}s infinite alternate`;
+
+    name.style.setProperty("--drift-rotation", `${randomRotation}deg`);
+  });
+}
+
+window.addEventListener("load", initializeScatterField);
+window.addEventListener("resize", initializeScatterField);
